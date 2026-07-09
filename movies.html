@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Movies and TV shows &middot; Draw Near</title>
+<meta name="description" content="The Chosen, The Passion of the Christ, and free Jesus films in English and German. A story can be the easiest way in: watch first, wonder later.">
+<link rel="icon" type="image/png" href="assets/logo-gold-transparent.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:'Inter',system-ui,sans-serif;color:#221c12;background:radial-gradient(120% 90% at 50% -8%,#fbf6ec 0%,#f4ebd8 48%,#eee3cf 100%) fixed}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+@keyframes stsheen{0%{background-position:0% 50%}100%{background-position:-220% 50%}}
+.goldi{display:inline-block;padding-bottom:.14em;margin-bottom:-.14em;background:linear-gradient(110deg,#a9741f 10%,#c9922e 32%,#e9b85c 46%,#f6d27a 50%,#e9b85c 54%,#c9922e 68%,#a9741f 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:#9a6a16;-webkit-text-fill-color:transparent;animation:stsheen 5s linear infinite}
+.eyebrow{font-weight:800;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#b07d2a;line-height:1.6}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#1a1208;font-weight:800;font-size:15px;border:none;border-radius:999px;padding:13px 22px;cursor:pointer;box-shadow:0 6px 18px rgba(233,184,92,.45);transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(233,184,92,.55)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:#fffdf8;border:1px solid #dccda8;color:#221c12;font-weight:700;font-size:14.5px;border-radius:999px;padding:12px 20px;transition:border-color .15s,transform .15s}
+.btn-ghost:hover{border-color:#c8902f;transform:translateY(-2px)}
+/* Nav (wie index) */
+.nav{position:sticky;top:0;z-index:30;background:rgba(250,244,232,.88);backdrop-filter:blur(10px);border-bottom:1px solid #ebe1ce}
+.nav .wrap{max-width:none;padding:0 20px}
+.nrow{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{display:flex;align-items:center;gap:10px}
+.lmark{width:40px;height:40px}
+.brand .bt b{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;display:block;line-height:1}
+.brand small{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#9a6a16}
+.navlinks{display:flex;align-items:center;gap:28px;flex:1;padding:0 12px}.navlinks>a:not(.ncta):first-child{margin-left:auto}
+.navlinks>a:not(.ncta){font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:17px;color:#4a4335}
+.navlinks>a:not(.ncta):hover{color:#9a6a16}
+.navlinks>a.cur{color:#9a6a16;border-bottom:2px solid #e9b85c}
+.ncta{display:inline-flex;margin-left:auto;white-space:nowrap;position:relative;overflow:hidden;background:#e9b85c;color:#1a1208!important;font-weight:800;font-size:13px;padding:8px 15px;border-radius:999px;box-shadow:0 0 0 1px rgba(255,227,154,.8),0 4px 14px rgba(233,184,92,.4);transition:transform .15s,box-shadow .2s}.ncta::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);transition:left .6s}.ncta:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,227,154,.9),0 8px 22px rgba(233,184,92,.5),0 0 30px rgba(233,184,92,.25)}.ncta:hover::after{left:140%}.ncta{font-family:'Inter',sans-serif!important;font-style:normal!important}
+.ncta:hover{transform:translateY(-2px)}
+/* Hero */
+.hero{padding:74px 0 60px}
+.hgrid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
+h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(38px,4.6vw,58px);line-height:1.04;margin-top:12px}
+.lead{font-size:18px;line-height:1.65;color:#5e5647;margin-top:18px;max-width:56ch}
+.lead b{color:#221c12}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.heropic{border-radius:20px;overflow:hidden;box-shadow:0 26px 60px rgba(120,90,40,.25);aspect-ratio:16/10;background-size:cover;background-position:center}
+/* Ehrliches Wort / Supplement */
+.supp{max-width:860px;margin:26px auto 0;background:#fffdf8;border:1px solid #ece1cb;border-left:4px solid #e9b85c;border-radius:16px;padding:24px 30px;box-shadow:0 12px 30px rgba(120,90,40,.1)}
+.supp .st{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#b07d2a}
+.supp p{font-size:15.5px;line-height:1.7;color:#4a4335;margin-top:8px}
+.supp b{color:#221c12}
+/* Chosen Sektion */
+section.block{padding:72px 0}
+.shead{text-align:center;max-width:760px;margin:0 auto 40px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4.2vw,48px);line-height:1.06;margin-top:10px}
+.shead p{font-size:16px;line-height:1.68;color:#5e5647;margin-top:14px}
+.chgrid{display:grid;grid-template-columns:.96fr 1.04fr;gap:50px;align-items:center;margin-top:10px}
+.chpic{border-radius:20px;overflow:hidden;box-shadow:0 26px 60px rgba(120,90,40,.25);aspect-ratio:688/308;background-size:cover;background-position:center}
+.chstory p{font-size:16px;line-height:1.7;color:#4a4335}
+.chstory p+p{margin-top:12px}
+.chstory b{color:#221c12}
+.beats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.beat{background:#fffdf8;border:1px solid #ece1cb;border-radius:16px;padding:22px 20px;box-shadow:0 10px 26px rgba(120,90,40,.09)}
+.beat .n{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;color:#c8902f;line-height:1}
+.beat h4{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;line-height:1.2;margin-top:8px}
+.beat p{font-size:13.5px;line-height:1.6;color:#6d6455;margin-top:7px}
+.chcta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:36px}
+/* Film-Karten */
+.films{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.film{display:flex;flex-direction:column;background:#fffdf8;border:1px solid #ece1cb;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(120,90,40,.1);transition:transform .2s,box-shadow .2s}
+.film:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(120,90,40,.18)}
+.fpic{aspect-ratio:16/9;background-size:cover;background-position:center}
+.fpic.navy{background:linear-gradient(135deg,#12233f,#0b1626);display:flex;align-items:center;justify-content:center}
+.fpic.navy span{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:24px;color:#f1d489;text-align:center;padding:0 20px;line-height:1.3}
+.fbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.ftag{font-weight:800;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#9a6a16;background:rgba(233,184,92,.16);border:1px solid rgba(200,144,47,.35);border-radius:999px;padding:3px 10px;align-self:flex-start}
+.fbody h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;line-height:1.15;margin-top:10px}
+.fbody p{font-size:14px;line-height:1.62;color:#6d6455;margin-top:8px;flex:1}
+.fbody .go{margin-top:14px;font-weight:800;font-size:13.5px;color:#9a6a16}
+.film:hover .go{text-decoration:underline;text-underline-offset:3px}
+/* Abschluss */
+.close{padding:70px 0 84px;text-align:center}
+.close .lead{margin-left:auto;margin-right:auto}
+.close .cta{justify-content:center}
+/* Footer */
+.foot{background:#0d1626;color:#c8d3e4;padding:44px 0}
+.frow{display:flex;gap:40px;justify-content:space-between;flex-wrap:wrap}
+.foot .brand b{color:#fbf6ec}
+.foot .tag{font-family:'Cormorant Garamond',serif;font-style:italic;color:#e9b85c;margin-top:8px}
+.foot a:hover{color:#ffe6a6}
+.foot .mh{font-weight:800;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8fa1bd;margin-bottom:10px}
+.foot .meta a{display:inline-block;margin-bottom:6px;font-size:14px}
+@media(max-width:960px){.hgrid,.chgrid{grid-template-columns:1fr;gap:28px}.beats{grid-template-columns:1fr 1fr}.films{grid-template-columns:1fr}.heropic{aspect-ratio:16/9}}
+@media(max-width:640px){.navlinks>a:not(.ncta){display:none}.brand small{display:none}.beats{grid-template-columns:1fr}}
+.nav{position:sticky;top:0;z-index:30;background:rgba(250,244,232,.88);backdrop-filter:blur(10px);border-bottom:1px solid #ebe1ce}.nav .wrap{max-width:none;padding:0 20px;margin:0}.nav .nrow{display:flex;align-items:center;justify-content:space-between;height:56px}.nav .brand{display:flex;align-items:center;gap:10px}.nav .lmark{width:34px;height:34px}.nav .bt b{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;display:block;line-height:1;color:#221c12}.nav .bt small{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12.5px;color:#9a6a16}.nav .navlinks{display:flex;align-items:center;gap:28px;flex:1;padding:0 12px}.nav .navlinks>a:not(.ncta){font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:17px;color:#4a4335;border-bottom:0}.nav .navlinks>a:not(.ncta):first-child{margin-left:auto}.nav .navlinks>a:not(.ncta):hover{color:#9a6a16}.nav .navlinks>a.cur{color:#9a6a16;border-bottom:2px solid #e9b85c}.nav .ncta{display:inline-flex;margin-left:auto;white-space:nowrap;position:relative;overflow:hidden;background:#e9b85c;color:#1a1208!important;font-weight:800;font-size:13px;font-style:normal;font-family:'Inter',sans-serif;padding:8px 15px;border-radius:999px;box-shadow:0 0 0 1px rgba(255,227,154,.8),0 4px 14px rgba(233,184,92,.4);transition:transform .15s,box-shadow .2s}.nav .ncta::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);transition:left .6s}.nav .ncta:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,227,154,.9),0 8px 22px rgba(233,184,92,.5),0 0 30px rgba(233,184,92,.25)}.nav .ncta:hover::after{left:140%}@media(max-width:640px){.nav .navlinks>a:not(.ncta){display:none}}.castband{display:block;max-width:1020px;margin:44px auto 0;border-radius:18px;overflow:hidden;box-shadow:0 22px 54px rgba(11,22,38,.4);transition:transform .2s}.castband:hover{transform:translateY(-4px)}.castband img{width:100%;display:block}.golinks{display:flex;flex-direction:column;gap:5px;margin-top:12px}.golinks .go{margin-top:0}.golinks .go:hover{text-decoration:underline;text-underline-offset:3px}.trailers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}.trl .tpic{position:relative;aspect-ratio:16/9;background-size:cover;background-position:center;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(11,22,38,.3)}.tplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#1a1208;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 6px 18px rgba(10,16,28,.45);transition:transform .2s}.trl:hover .tplay{transform:translate(-50%,-50%) scale(1.12)}.tlab{font-size:13.5px;font-weight:700;color:#4a4335;margin-top:9px;text-align:center}.platforms{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:16px}.plab{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8a8071}.plat{font-size:13px;font-weight:700;color:#4a4335;background:#fffdf8;border:1px solid #dccda8;border-radius:999px;padding:8px 15px;transition:border-color .15s,transform .15s}.plat:hover{border-color:#c8902f;transform:translateY(-2px)}.chstats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:26px}.cst{background:#fffdf8;border:1px solid #ece1cb;border-radius:14px;padding:14px 30px;text-align:center;box-shadow:0 10px 26px rgba(120,90,40,.09)}.cst b{display:block;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:34px;line-height:1;color:#9a6a16}.cst span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8a8071;margin-top:5px}.heroplayer{display:flex;flex-direction:column;gap:14px}.hp-link{display:block;position:relative;aspect-ratio:16/9}.tplay.tbig{width:62px;height:62px;font-size:22px}.tplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#1a1208;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(10,16,28,.45);transition:transform .2s}.hp-link:hover .tplay{transform:translate(-50%,-50%) scale(1.1)}.herostats{display:flex;gap:10px}.hst{flex:1;background:#fffdf8;border:1px solid #ece1cb;border-radius:12px;padding:10px 8px;text-align:center;box-shadow:0 8px 20px rgba(120,90,40,.08)}.hst b{display:block;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:26px;line-height:1;color:#9a6a16}.hst span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8a8071;margin-top:4px}.langrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center}.lr-t{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8a8071}.langrow a{font-size:13px;font-weight:700;color:#4a4335;background:#fffdf8;border:1px solid #dccda8;border-radius:999px;padding:6px 13px;transition:border-color .15s}.langrow a:hover{border-color:#c8902f}.flg{display:inline-block;width:17px;height:12px;border-radius:2.5px;vertical-align:-1px;box-shadow:0 0 0 1px rgba(34,28,18,.18)}.flg.us{background:linear-gradient(#3c3b6e,#3c3b6e) top left/45% 55% no-repeat,repeating-linear-gradient(180deg,#b22234 0 2px,#fff 2px 4px)}.flg.de{background:linear-gradient(180deg,#26221c 33%,#dd0000 33% 66%,#ffce00 66%)}.flg.es{background:linear-gradient(180deg,#c60b1e 26%,#ffc400 26% 74%,#c60b1e 74%)}</style></head><body>
+
+<nav class="nav"><div class="wrap nrow"><a class="brand" href="index-v2.html"><img class="lmark" src="assets/logo-gold-transparent.png" alt="Draw Near"><span class="bt"><b>Draw Near</b><small class="gsh">Music that brings you closer to God</small></span></a><div class="navlinks"><a href="index-v2.html">Home</a><a href="check.html">Questionnaire</a><a class="cur" href="movies.html">Movies and TV shows</a><a href="ready.html">Are you ready?</a><a class="ncta" href="index-v2.html#newsletter">Get the weekly story</a></div></div></nav>
+
+<header class="hero"><div class="wrap hgrid">
+<div>
+<div class="eyebrow">Movies and TV shows &middot; watch your way in</div>
+<h1>Sometimes a story <span class="goldi">gets there first.</span></h1>
+<p class="lead">Not everyone starts with a book, and nobody has to. Some of the best first steps toward God happened on a sofa, with snacks, watching a story so good you forgot it was "religious". Below: <b>the series that changed everything, one unforgettable film, and full movies you can watch free right now</b>, in English or German.</p>
+<div class="cta"><a class="btn-gold" href="#chosen">&#9654;&nbsp; Start with The Chosen</a><a class="btn-ghost" href="#free">Free films &darr;</a></div>
+</div>
+<div class="heroplayer"><a class="heropic hp-link" href="https://www.youtube.com/watch?v=X-AJdKty74M" target="_blank" rel="noopener" style="background-image:url('assets/chosen-hero.webp')"><span class="tplay tbig">&#9654;</span></a><div class="herostats"><div class="hst"><b>190+</b><span>countries</span></div><div class="hst"><b>125+</b><span>languages</span></div><div class="hst"><b>350M</b><span>viewers reached</span></div></div><div class="langrow"><span class="lr-t">Watch the trailer:</span><a href="https://www.youtube.com/watch?v=X-AJdKty74M" target="_blank" rel="noopener"><span class="flg us"></span> English</a><a href="https://www.youtube.com/watch?v=1G0_A2xZd8g" target="_blank" rel="noopener"><span class="flg de"></span> Deutsch</a><a href="https://www.youtube.com/watch?v=4d7VG2A3C8w" target="_blank" rel="noopener"><span class="flg es"></span> Espa&ntilde;ol</a></div></div>
+</div>
+<div class="wrap"><div class="supp">
+<div class="st">An honest word first</div>
+<p>Think of these like a good supplement: <b>a real help, never the meal.</b> A series can open the door, put faces to the story and melt away years of wrong pictures. But it cannot replace reading the words yourself, any more than vitamins replace food. Watch, enjoy, let it work. And when you get hungry for the real thing, you will know where to look.</p>
+</div></div>
+</header>
+
+<section class="block" id="chosen"><div class="wrap">
+<div class="shead">
+<div class="eyebrow">The series</div>
+<h2>The Chosen: <i class="goldi">the story behind the story.</i></h2>
+<p>The first multi-season series about the life of Jesus, told through the eyes of the people who met him: the fishermen, the tax collector, the woman everyone had written off. You do not watch a sermon. You watch people, and you recognize yourself.</p>
+</div>
+<div class="chgrid">
+<div class="chpic" style="background-image:url('assets/chosen-portrait.webp')"></div>
+<div class="chstory">
+<p><b>It started embarrassingly small.</b> A short film about the shepherds, made for a church Christmas service in 2017. People did not just like it, they shared it until millions had seen it. So director Dallas Jenkins asked a wild question: what if a series about Jesus was made like the shows people actually binge?</p>
+<p><b>Nobody in Hollywood paid for it. Everybody else did.</b> Over 16,000 ordinary people put in 11 million dollars, the largest crowdfunded media project in history. No studio, no network, no ads: just people who wanted this story told well.</p>
+<p><b>And it is free. On purpose.</b> A pay-it-forward model keeps every episode free in the app, translated into more than 125 languages, with over 350 million viewers reached in 190+ countries. When the world sat at home in 2020, this was one of the few things that quietly exploded: a free series about hope.</p>
+</div>
+</div>
+<div class="beats">
+<div class="beat"><div class="n">1</div><h4>One short film</h4><p>Christmas 2017: a low-budget church project about the shepherds goes viral, and a question is born.</p></div>
+<div class="beat"><div class="n">2</div><h4>A world record</h4><p>16,000+ people crowdfund 11 million dollars for season one: the largest crowdfunded media project ever.</p></div>
+<div class="beat"><div class="n">3</div><h4>Free, everywhere</h4><p>Pay-it-forward keeps it free: 125+ languages, 190+ countries, 350 million viewers reached.</p></div>
+<div class="beat"><div class="n">4</div><h4>Still growing</h4><p>Five seasons out, season six arrives late 2026, seven planned in total. The finale is headed for cinemas.</p></div>
+</div>
+<a class="castband" href="https://watch.thechosen.tv" target="_blank" rel="noopener"><img src="assets/chosen-cast.webp" alt="The Chosen cast, season three"></a><div class="chcta"><a class="btn-gold" href="https://watch.thechosen.tv" target="_blank" rel="noopener">&#9654;&nbsp; Watch free (official app + web)</a></div><div class="platforms"><span class="plab">Also on:</span><a class="plat" href="https://tv.apple.com/us/show/the-chosen/umc.cmc.3uvdj53zyopw8voaf9lh2twh" target="_blank" rel="noopener">&#63743; Apple TV</a><a class="plat" href="https://www.amazon.com/s?k=the+chosen+series" target="_blank" rel="noopener">Prime Video (US)</a><a class="plat" href="https://www.amazon.de/s?k=the+chosen+serie" target="_blank" rel="noopener">Amazon.de (Deutsch)</a><a class="plat" href="https://www.youtube.com/@TheChosenSeries" target="_blank" rel="noopener">YouTube</a></div>
+</div></section>
+
+<section class="block" id="free" style="padding-top:24px"><div class="wrap">
+<div class="shead">
+<div class="eyebrow">Watch tonight &middot; free or streaming</div>
+<h2>Three more doors, <i class="goldi">all of them open.</i></h2>
+</div>
+<div class="films">
+<article class="film"><a href="https://www.imdb.com/title/tt0335345/" target="_blank" rel="noopener"><div class="fpic" style="background-image:url('assets/passion.webp')"></div></a>
+<div class="fbody"><span class="ftag">Film &middot; intense &middot; streaming</span><h3><a href="https://www.imdb.com/title/tt0335345/" target="_blank" rel="noopener">The Passion of the Christ</a></h3><p>Mel Gibson's 2004 film about the final hours. Brutally honest and not a casual watch: this is the cost, shown without flinching. Many call it the most powerful film they have ever seen. Best watched when you already know why he did it.</p>
+<div class="golinks"><a class="go" href="https://www.amazon.com/s?k=the+passion+of+the+christ" target="_blank" rel="noopener">Watch on Amazon (English) &rarr;</a><a class="go" href="https://www.amazon.de/s?k=die+passion+christi" target="_blank" rel="noopener">Auf Deutsch ansehen (Amazon.de) &rarr;</a></div></div>
+</article>
+<article class="film"><a href="https://www.jesusfilm.org/watch/jesus.html/english.html" target="_blank" rel="noopener">
+<div class="fpic navy"><span>The most translated film in history</span></div>
+<div class="fbody"><span class="ftag">Full movie &middot; free &middot; English</span><h3>JESUS (1979)</h3><p>The classic, scene by scene from the Gospel of Luke, and the most translated film in history: over 2,000 languages. Watch the whole thing free on the official Jesus Film site or app, tonight if you want.</p><span class="go">Watch free in English &rarr;</span></div>
+</a></article>
+<article class="film"><a href="https://www.jesusfilm.org/watch/jesus.html/german-standard.html" target="_blank" rel="noopener">
+<div class="fpic navy"><span>Der ganze Film, kostenlos auf Deutsch</span></div>
+<div class="fbody"><span class="ftag">Ganzer Film &middot; kostenlos &middot; Deutsch</span><h3>Der Jesus Film (Deutsch)</h3><p>Derselbe Klassiker komplett auf Deutsch, offiziell und kostenlos. Schick ihn deiner Mutti, deiner Omi, oder schau ihn selbst: keine Anmeldung, kein Haken, einfach ansehen.</p><span class="go">Kostenlos auf Deutsch ansehen &rarr;</span></div>
+</a></article>
+</div>
+</div></section>
+
+<section class="close"><div class="wrap">
+<div class="eyebrow">After the credits</div>
+<h2>When the story stays with you, <i class="goldi">the songs are here.</i></h2>
+<p class="lead">That feeling when the episode ends and you sit there a moment longer? That is a good moment to press play. Or to get one short story a week and let it grow slowly.</p>
+<div class="cta"><a class="btn-gold" href="index-v2.html#songs">&#9654;&nbsp; Play a song</a><a class="btn-ghost" href="index-v2.html#newsletter">Get the weekly story</a></div>
+</div></section>
+
+<footer class="foot"><div class="wrap frow">
+<div><div class="brand"><img class="lmark" src="assets/logo-bright-transparent.png" alt="Draw Near"><span class="bt"><b>Draw Near</b></span></div><div class="tag">Music that brings you closer to God.</div></div>
+<div class="meta"><div class="mh">Listen</div><a href="index-v2.html#songs">The songs</a><br><a href="index-v2.html#newsletter">The weekly story</a><br><a href="https://www.youtube.com/@drawnearmusic" rel="noopener">YouTube</a></div>
+<div class="meta"><div class="mh">Watch</div><a href="#chosen">The Chosen</a><br><a href="#free">Free films</a></div>
+</div></footer>
+
+</body></html>

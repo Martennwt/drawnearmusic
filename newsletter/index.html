@@ -1,0 +1,343 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Weekly Story · Draw Near</title>
+<meta name="description" content="One short, true-to-life story a week that makes God feel close and the Bible make sense. No sermons, no guilt, no churchy words. Free, in English, Deutsch or Español.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Weekly Story · Draw Near">
+<meta property="og:description" content="One short, true-to-life story a week that makes God feel close and the Bible make sense. No sermons, no guilt, no churchy words.">
+<meta property="og:url" content="https://martennwt.github.io/marten-songs/newsletter/">
+<link rel="icon" type="image/png" href="../assets/logo-gold-transparent.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Draw Near light+gold system (Tokens aus brand/brand.css, inline weil diese Seite public ist) */
+:root{
+  --cream:#f6efe2; --cream2:#efe4d0; --card:#fffdf8; --border:#ebe1ce;
+  --navy:#0b1626; --gold:#e9b85c; --goldBright:#ffe39a; --goldDeep:#c8902f; --goldInk:#9a6a16; --eyebrow:#b07d2a;
+  --ink:#221c12; --muted:#5e5647; --faint:#8a8071;
+  --serif:'Cormorant Garamond',Georgia,serif; --ui:'Inter',system-ui,sans-serif;
+  --shadow:0 14px 34px rgba(120,90,40,.10); --shadow-lg:0 26px 60px rgba(120,90,40,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ui);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(120% 90% at 50% -8%,#fbf6ec 0%,#f4ebd8 48%,#eee3cf 100%) fixed}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 26px}
+.band{padding:76px 0}
+.band.cream2{background:linear-gradient(180deg,#f4ebd8,#efe4d0)}
+.eyebrow{font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--eyebrow);margin-bottom:16px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(42px,6.4vw,72px);line-height:1.04}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.2vw,44px);line-height:1.1;margin-bottom:8px}
+h3{font-family:var(--serif);font-weight:700;font-size:23px}
+p{color:var(--muted)}
+.small{font-size:13.5px;color:var(--faint)}
+@keyframes shimmer{to{background-position:-220% center}}
+.am{background:linear-gradient(110deg,#a9741f 10%,#e9b85c 38%,#f6d27a 50%,#e9b85c 62%,#a9741f 90%);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
+.rule{height:1px;background:linear-gradient(90deg,transparent,rgba(176,125,42,.35),transparent);border:0;max-width:1040px;margin:0 auto}
+/* Reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+html.still .rv{opacity:1!important;transform:none!important}
+/* Nav */
+.nav{position:sticky;top:0;z-index:30;background:rgba(250,244,232,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav .mark{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:23px}
+.nav .mark img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(120,90,40,.28))}
+.nav .mark span{color:var(--goldInk)}
+.nav a.songs{font-weight:700;font-size:14.5px;color:var(--goldInk)}
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:84px 0 70px}
+.hero .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 45% at 50% 0%,rgba(233,184,92,.26),transparent 62%)}
+.hgrid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center}
+.hero .sub{font-size:19px;color:var(--muted);max-width:520px;margin-top:20px}
+.hero .sub b{color:var(--ink)}
+/* Floating notes (dezent) */
+.notes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.notes span{position:absolute;font-size:22px;color:rgba(200,144,47,.35);animation:float 11s linear infinite}
+@keyframes float{0%{transform:translateY(30px);opacity:0}12%{opacity:1}88%{opacity:.7}100%{transform:translateY(-560px);opacity:0}}
+/* Form */
+.signup{margin-top:30px;max-width:520px}
+.frow{display:flex;gap:10px}
+.frow input{flex:1;min-width:0;padding:15px 19px;border-radius:999px;border:1.5px solid var(--border);font-family:var(--ui);font-size:15px;background:#fff;outline:none}
+.frow input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(233,184,92,.18)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--ui);
+  font-weight:800;font-size:15.5px;padding:15px 26px;border-radius:999px;cursor:pointer;border:0;white-space:nowrap;transition:transform .15s,box-shadow .2s}
+.btn-gold{background:var(--gold);color:#1a1208;box-shadow:0 0 0 1px rgba(255,227,154,.8),0 6px 22px rgba(233,184,92,.45),0 0 30px rgba(233,184,92,.22)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-gold::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);animation:sweep 2.8s ease-in-out infinite}
+@keyframes sweep{0%{left:-120%}55%,100%{left:140%}}
+.langs{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.lang{font-weight:700;font-size:13px;color:var(--goldInk);background:rgba(233,184,92,.12);border:1.5px solid var(--border);
+  padding:7px 15px;border-radius:999px;cursor:pointer;transition:border-color .15s}
+.lang.on{border-color:var(--gold);background:rgba(233,184,92,.22)}
+.finePrint{margin-top:12px;font-size:13px;color:var(--faint)}
+.fmsg{display:none;margin-top:14px;font-size:14.5px;font-weight:600;color:var(--goldInk);background:rgba(233,184,92,.12);
+  border:1px solid var(--gold);border-radius:14px;padding:12px 16px}
+.fmsg.on{display:block}
+/* Player card (Karaoke-Signatur) */
+.player{background:radial-gradient(120% 90% at 50% -10%,#16243a,#0c1626 55%,#070d18);border-radius:20px;
+  padding:38px 32px 30px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow-lg);text-align:center}
+.player .en{font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.6vw,31px);line-height:1.35;color:rgba(234,240,247,.55);min-height:3.1em}
+.player .en .w{transition:color .25s,filter .25s}
+.player .en .w.sung{color:#f1d489}
+.player .en .w.cur{color:#ffe6a6;filter:drop-shadow(0 0 8px rgba(243,205,130,.5))}
+.player .tline{font-family:var(--serif);font-style:italic;font-size:17px;color:rgba(186,226,207,.75);margin-top:14px;min-height:1.5em}
+.player .cap{margin-top:20px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#9fb0c6}
+/* Letter (Beispiel-Story) */
+.letter{background:linear-gradient(180deg,#fffdf8,#fbf4e6);border:1px solid var(--border);border-radius:22px;
+  box-shadow:var(--shadow-lg);padding:52px clamp(24px,6vw,74px);max-width:760px;margin:34px auto 0;position:relative}
+.letter::before{content:"";position:absolute;top:0;left:10%;right:10%;height:3px;border-radius:3px;
+  background:linear-gradient(90deg,transparent,#e9b85c,transparent)}
+.letter .subj{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.6vw,36px);line-height:1.12;margin-bottom:24px}
+.letter p{font-size:16.5px;line-height:1.85;color:#4a4234;margin:0 0 18px}
+.letter p.center{text-align:center;color:var(--ink);font-weight:500}
+.letter .q{font-weight:700;color:var(--ink);font-size:17px;background:rgba(233,184,92,.12);border-left:3px solid var(--gold);
+  padding:14px 18px;border-radius:0 12px 12px 0;margin:24px 0 18px}
+.letter .sig{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink)}
+.letter .song{margin-top:26px;padding-top:20px;border-top:1px solid var(--border);font-size:14.5px;color:var(--muted)}
+.letter .song b{color:var(--goldInk)}
+.letter .song .line{font-family:var(--serif);font-style:italic;font-size:17px}
+/* Inbox tiles */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tile{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+.tile .ic{font-size:26px;margin-bottom:12px}
+.tile h3{margin-bottom:8px;font-size:21px}
+.tile p{font-size:14.5px}
+/* Who */
+.who{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;max-width:720px;margin:0 auto;
+  background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px 34px;box-shadow:var(--shadow)}
+.who .ava{width:86px;height:86px;border-radius:50%;background:linear-gradient(130deg,#16243a,#0c1626);display:flex;
+  align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:34px;color:#f1d489;border:2px solid var(--gold)}
+.who p{font-size:15.5px}
+/* FAQ */
+.faq{max-width:720px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:12px;box-shadow:var(--shadow)}
+.faq summary{font-weight:700;cursor:pointer;color:var(--ink);font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::after{content:"+";font-family:var(--serif);font-size:22px;color:var(--goldDeep)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:10px;font-size:14.5px}
+/* Footer */
+.foot{padding:44px 22px 54px;color:var(--faint);font-size:13px;text-align:center;border-top:1px solid var(--border)}
+.foot a{color:var(--goldInk);font-weight:700}
+.center{text-align:center}
+.lead{font-size:19px;color:var(--muted);max-width:620px}
+.lead.mid{margin:8px auto 0}
+@media(max-width:840px){
+  .hgrid{grid-template-columns:1fr;gap:38px}
+  .g3{grid-template-columns:1fr}
+  .who{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .band{padding:56px 0}
+  .frow{flex-direction:column}
+  .frow .btn{width:100%}
+}
+</style></head>
+<body>
+
+<div class="nav"><div class="wrap">
+  <div class="mark"><img src="../assets/logo-gold-transparent.png" alt="">Draw <span>Near</span></div>
+  <a class="songs" href="../index.html">♪ Listen to the songs →</a>
+</div></div>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="notes" id="notes"></div>
+  <div class="wrap hgrid">
+    <div>
+      <div class="eyebrow">The weekly story · free</div>
+      <h1>You've never heard God put this <span class="am">simply</span>.</h1>
+      <p class="sub">Forget everything you were told about religion and church. <b>One short, true-to-life
+      story a week</b> that makes God feel close and the Bible make sense. No sermons, no guilt,
+      no churchy words.</p>
+      <div class="signup">
+        <!-- TODO Launch: Formular an Kit anschliessen (ENTSCHIEDEN 07/2026: Kit, Free bis 10.000; Double-Opt-in aktivieren, US-Transfer in die Datenschutzerklaerung; Begruendung in youtube/newsletter/research-2026-07.md Frage B) -->
+        <form id="sf" class="frow">
+          <input id="em" type="email" required placeholder="you@email.com" aria-label="Email" autocomplete="email">
+          <button class="btn btn-gold" type="submit">Get the weekly story</button>
+        </form>
+        <div class="langs" id="langs" role="radiogroup" aria-label="Language">
+          <span class="lang on" data-l="en">English</span><span class="lang" data-l="de">Deutsch</span><span class="lang" data-l="es">Español</span>
+        </div>
+        <div class="finePrint">Free · one story a week · unsubscribe anytime.</div>
+        <div class="fmsg" id="fmsg">Almost there: signups open with the very first story, soon.
+        Until then, <a href="../index.html" style="text-decoration:underline">the songs are already live →</a></div>
+      </div>
+    </div>
+    <div>
+      <div class="player">
+        <div class="en" id="kar"></div>
+        <div class="tline" id="ktr"></div>
+        <div class="cap">From the songs · the words light up as they're sung</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<!-- BEISPIEL-STORY -->
+<section class="band"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Read one first</div>
+    <h2>This is what lands in your inbox.</h2>
+    <p class="lead mid">A real one, in full. Two minutes. Then decide.</p>
+  </div>
+  <article class="letter rv">
+    <div class="subj">If God is good, why all the pain?</div>
+    <p>A few years ago I sat in a hospital corridor at two in the morning.</p>
+    <p>The vending machine hummed. Somewhere behind a door, a machine beeped for someone I love.
+    And I remember thinking: if there is a God, this is the night I stop believing in him.</p>
+    <p>I had heard all the answers. Everything happens for a reason. It's all part of a plan.
+    People mean well when they say these things. But down in that corridor, those sentences
+    don't hold. They sound like a weather report read to someone whose house is on fire.</p>
+    <p>Here is what I only noticed much later.</p>
+    <p class="center">When you're at the bottom of a pit, you don't actually want an explanation.<br>
+    Nobody down there is asking for a theory.<br>
+    <b>You want someone to climb down.</b></p>
+    <p>That's the strange claim at the center of the old story I spent years avoiding. Not that
+    God keeps a spreadsheet where all the pain adds up. But that he didn't stay outside of it.
+    That he climbed down, all the way. Into the corridor. Into the beeping room. Into the grave.
+    Whatever else you make of that story, it's the only version of God I've ever heard of
+    who <span class="am" style="font-weight:700">comes back with scars</span>.</p>
+    <p>I still don't have an answer for the pain. I'm suspicious of anyone who says they do.
+    I just stopped looking for an answer the night I realized what I was really looking for
+    was company.</p>
+    <p>So here's my question, and I mean it honestly:</p>
+    <div class="q">When your world last fell apart, what did you actually need:
+    an explanation, or someone beside you?</div>
+    <p class="sig">See you next week,<br>Marten</p>
+    <div class="song">♪ <b>Song of the week:</b> The Word That Found Me ·
+    <span class="line">"He took the weight I couldn't hold, and He carried it for me."</span></div>
+  </article>
+</div></section>
+
+<!-- WAS KOMMT -->
+<section class="band cream2"><div class="wrap">
+  <div class="center" style="margin-bottom:30px">
+    <div class="eyebrow">Every week</div>
+    <h2>Three things. Nothing else.</h2>
+  </div>
+  <div class="g3">
+    <div class="tile rv"><div class="ic">✉</div><h3>One true story</h3><p>A real moment from an ordinary week, and the one thought that turns it around. Two minutes to read. It starts where your doubts start.</p></div>
+    <div class="tile rv"><div class="ic">♪</div><h3>The song of the week</h3><p>One bilingual karaoke song that carries the same thought, with a line worth singing on the road. English, with Spanish or German below.</p></div>
+    <div class="tile rv"><div class="ic">✦</div><h3>A question, not a sermon</h3><p>Every story ends with one honest, open question. No pressure, no guilt, no "you must". You keep the question, you decide what to do with it.</p></div>
+  </div>
+</div></section>
+
+<!-- WER SCHREIBT -->
+<section class="band"><div class="wrap">
+  <div class="center" style="margin-bottom:28px">
+    <div class="eyebrow">Who writes this</div>
+  </div>
+  <div class="who rv">
+    <div class="ava">M</div>
+    <div>
+      <p>I'm Marten. I make songs from the oldest book in the world, the kind you can actually
+      sing along to. I was a skeptic far longer than I've been anything else, and I still ask
+      more questions than I answer. I write the story I wish someone had sent me back then:
+      short, honest, and free of church words.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="band cream2"><div class="wrap">
+  <div class="center" style="margin-bottom:28px">
+    <div class="eyebrow">Fair questions</div>
+    <h2>Before you give anyone your email.</h2>
+  </div>
+  <div class="faq">
+    <details class="rv"><summary>Is this church?</summary><p>No. No membership, no meetings, no collection plate. It's one short story a week from one person, and you can leave with one click.</p></details>
+    <details class="rv"><summary>I'm not a believer. Is this for me?</summary><p>Especially for you. The stories start where the doubts start: pain, proof, hypocrites, "believe or burn". If you've said any of those sentences, you'll feel at home.</p></details>
+    <details class="rv"><summary>I already believe. What's in it for me?</summary><p>The same stories read deeper the second way. And they're built to be passed on: send one to the friend you never know how to talk to about this.</p></details>
+    <details class="rv"><summary>What does it cost?</summary><p>Nothing. If a story ever mentions a tool or a book with a link, it's marked, and it never costs you anything extra.</p></details>
+    <details class="rv"><summary>Which languages?</summary><p>English, Deutsch and Español. Pick yours at signup, switch anytime.</p></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="band"><div class="wrap center">
+  <h2>One story a week. <span class="am">Closer</span> every time.</h2>
+  <p class="lead mid" style="margin-bottom:26px">Free. Two minutes. Unsubscribe anytime.</p>
+  <a class="btn btn-gold" href="#top" onclick="document.getElementById('em').focus();return true">Get the weekly story</a>
+</div></section>
+
+<div class="foot">
+  Draw Near · The weekly story · <a href="../index.html">Listen to the songs</a> ·
+  <a href="https://www.youtube.com/@drawnearmusic" rel="noopener">YouTube</a>
+  <div style="margin-top:8px">Legal notice &amp; privacy policy will be here before launch.</div>
+</div>
+
+<script>
+(function(){
+  var still = /(^|[?&])still=1/.test(location.search);
+  if (still) document.documentElement.className = 'still';
+
+  // Karaoke-Signatur im Hero (Wort fuer Wort gold)
+  var LINES = [
+    {en:"Don't worry about tomorrow", tr:"No te preocupes por el mañana"},
+    {en:"He took the weight I couldn't hold", tr:"Él llevó la carga que yo no podía"},
+    {en:"Come closer, come closer to God", tr:"Acércate, acércate a Dios"},
+    {en:"Every promise like a hand held out", tr:"Cada promesa como una mano extendida"}
+  ];
+  var kar = document.getElementById('kar'), ktr = document.getElementById('ktr'), li = 0;
+  function setLine(idx){
+    var words = LINES[idx].en.split(' ');
+    kar.innerHTML = words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
+    ktr.textContent = LINES[idx].tr;
+  }
+  function playLine(){
+    setLine(li);
+    var ws = kar.querySelectorAll('.w'), i = 0;
+    if (still){ ws.forEach(function(w,n){ if(n<2) w.className='w sung'; if(n===2) w.className='w cur'; }); return; }
+    var t = setInterval(function(){
+      if (i > 0 && ws[i-1]) ws[i-1].className = 'w sung';
+      if (i < ws.length){ ws[i].className = 'w cur'; i++; }
+      else { clearInterval(t); setTimeout(function(){ li = (li+1)%LINES.length; playLine(); }, 1600); }
+    }, 520);
+  }
+  playLine();
+
+  // Schwebende Noten
+  if (!still){
+    var notes = document.getElementById('notes'), glyphs = ['♪','♫','♩'];
+    for (var n = 0; n < 7; n++){
+      var s = document.createElement('span');
+      s.textContent = glyphs[n % 3];
+      s.style.left = (8 + n*13) + '%';
+      s.style.bottom = '-30px';
+      s.style.animationDelay = (n*1.7) + 's';
+      s.style.fontSize = (16 + (n%3)*6) + 'px';
+      notes.appendChild(s);
+    }
+  }
+
+  // Sprach-Pills
+  document.getElementById('langs').addEventListener('click', function(e){
+    var t = e.target.closest('.lang'); if (!t) return;
+    this.querySelectorAll('.lang').forEach(function(l){ l.className = 'lang'; });
+    t.className = 'lang on';
+  });
+
+  // Formular (Platzhalter bis Anbieter feststeht)
+  document.getElementById('sf').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('fmsg').className = 'fmsg on';
+  });
+
+  // Reveal
+  if ('IntersectionObserver' in window && !still){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); });
+  }
+})();
+</script>
+</body></html>
