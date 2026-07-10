@@ -87,6 +87,9 @@ html.jr .beat.in{opacity:1;transform:none}
 
 /* Mobil: Hamburger-Menue (10.07.2026) */
 .mburger{display:none}.mnav{display:none}@media(max-width:640px){.mburger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:38px;border:1px solid rgba(154,106,22,.35);border-radius:10px;background:rgba(255,253,248,.72);cursor:pointer;padding:0 10px;flex:none;margin-left:10px}.mburger span{display:block;height:2px;border-radius:2px;background:#7a5a1c;transition:transform .25s,opacity .2s}.mburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.mburger.open span:nth-child(2){opacity:0}.mburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mnav{position:absolute;left:0;right:0;top:100%;background:rgba(250,244,232,.97);backdrop-filter:blur(10px);border-bottom:1px solid #ebe1ce;box-shadow:0 18px 34px rgba(90,64,22,.16);padding:8px 22px 14px;z-index:29}.mnav.open{display:block}.mnav a{display:block;padding:13px 2px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:19px;color:#4a4335;border-bottom:1px solid #f0e6d2}.mnav a:last-child{border-bottom:0}.mnav a.cur{color:#9a6a16}.nav .bt b{font-size:19px;white-space:nowrap}.nav .bt small,.nav .brand small{display:none}.nav .brand{gap:8px}.nav .navlinks{gap:10px;padding:0 6px}.nav .ncta{font-size:11.5px;padding:7px 11px}}
+
+/* Mobil: Scroll-Hinweis-Pfeil im Hero (10.07.) */
+.scrhint{display:none}@media(max-width:640px){.scrhint{position:absolute;left:50%;bottom:22px;margin-left:-19px;z-index:3;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(154,106,22,.45);background:rgba(255,253,248,.82);color:#9a6a16;font-size:17px;font-weight:800;box-shadow:0 6px 18px rgba(90,64,22,.25);animation:scrbob 1.7s ease-in-out infinite;backdrop-filter:blur(3px)}}.scrhint.hide{opacity:0!important;transition:opacity .4s}@keyframes scrbob{0%,100%{transform:translateY(0);opacity:.75}50%{transform:translateY(8px);opacity:1}}
 </style></head><body>
 <nav class="nav"><div class="wrap nrow"><a class="brand" href="index.html"><img class="lmark" src="assets/logo-gold-transparent.png" alt="Draw Near"><span class="bt"><b>Draw Near</b><small class="gsh">Music that brings you closer to God</small></span></a><div class="navlinks"><a href="index.html">Home</a><a href="check.html">Check-in</a><br><a href="movies.html">Movies and TV shows</a><a class="cur" href="#">Are you ready?</a><a class="ncta" href="index.html#newsletter">Get the weekly story</a></div><button class="mburger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div><div class="mnav"></div></nav>
 
@@ -100,6 +103,7 @@ html.jr .beat.in{opacity:1;transform:none}
     <h1 class="beat">Are you ready<span class="l2"><span class="gsh">for the good news?</span></span></h1>
     <p class="sub beat">This page is about the Gospel: the message, the <b>&ldquo;Good News&rdquo;</b>, maybe the best news you will ever be told. It has been passed from hand to hand for over two thousand years, and most people have never heard it told plainly. It truly could change your life. <b>But only if you read it openly.</b></p>
   </div>
+  <div class="scrhint" aria-hidden="true">&#8595;</div>
 </header>
 <section class="letterband">
   <article class="letter beat">
@@ -143,4 +147,4 @@ html.jr .beat.in{opacity:1;transform:none}
 </script>
 
 <script>/* Mobil-Menue */(function(){var b=document.querySelector(".mburger"),m=document.querySelector(".mnav");if(!b||!m)return;document.querySelectorAll(".nav .navlinks>a:not(.ncta)").forEach(function(a){m.appendChild(a.cloneNode(true))});function cl(){b.classList.remove("open");m.classList.remove("open");b.setAttribute("aria-expanded","false")}b.addEventListener("click",function(e){e.stopPropagation();var o=!m.classList.contains("open");b.classList.toggle("open",o);m.classList.toggle("open",o);b.setAttribute("aria-expanded",o?"true":"false")});m.addEventListener("click",function(e){if(e.target.closest("a"))cl()});document.addEventListener("click",function(e){if(m.classList.contains("open")&&!e.target.closest(".nav"))cl()});})();</script>
-</body></html>
+<script>(function(){var a=document.querySelector(".scrhint");if(!a)return;window.addEventListener("scroll",function(){a.classList.toggle("hide",window.scrollY>80)},{passive:true});})();</script></body></html>
