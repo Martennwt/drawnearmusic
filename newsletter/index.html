@@ -332,10 +332,12 @@ html.still .rv{opacity:1!important;transform:none!important}
     var fm = document.getElementById('fmsg');
     var bt = e.target.querySelector('button');
     if (bt){ bt.disabled = true; bt.textContent = 'One moment…'; }
+    // Kit-Formulare je Sprache (13.07.): eigene Bestaetigungs-Mail pro Sprache
+    var KITF = {en:'9675389', de:'9675516', es:'9675527'};
     var fd = new FormData();
     fd.append('email_address', em);
     fd.append('fields[language]', lang);
-    fetch('https://app.kit.com/forms/9675389/subscriptions', {method:'POST', headers:{'Accept':'application/json'}, body:fd})
+    fetch('https://app.kit.com/forms/' + (KITF[lang]||KITF.en) + '/subscriptions', {method:'POST', headers:{'Accept':'application/json'}, body:fd})
       .then(function(r){ return r.json(); })
       .then(function(j){
         var ok = j && j.status === 'success';

@@ -467,8 +467,10 @@ var m=document.getElementById("nlmsg");
 var name=(f.querySelector("#nlname")||{value:""}).value||"";
 var lb=f.querySelector(".nl2l.on");var lang=lb?lb.getAttribute("data-l"):"en";
 var btn=f.querySelector(".btn-gold");if(btn){btn.disabled=true;btn.textContent="One moment…";}
+/* Kit-Formulare je Sprache (13.07.): eigene Bestaetigungs-Mail pro Sprache */
+var KITF={en:"9675389",de:"9675516",es:"9675527"};
 var fd=new FormData();fd.append("email_address",nlEmail);fd.append("fields[first_name]",name);fd.append("fields[language]",lang);
-fetch("https://app.kit.com/forms/9675389/subscriptions",{method:"POST",headers:{"Accept":"application/json"},body:fd})
+fetch("https://app.kit.com/forms/"+(KITF[lang]||KITF.en)+"/subscriptions",{method:"POST",headers:{"Accept":"application/json"},body:fd})
  .then(function(r){return r.json()})
  .then(function(j){var ok=j&&j.status==="success";
   if(m){m.innerHTML=ok?"One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.":"Hmm, that didn’t work. Please check the email address and try again.";m.classList.add("show");}
