@@ -154,7 +154,7 @@ html.still .rv{opacity:1!important;transform:none!important}
       story a week</b> that makes God feel close and the Bible make sense. No sermons, no guilt,
       no churchy words.</p>
       <div class="signup">
-        <!-- TODO Launch: Formular an Kit anschliessen (ENTSCHIEDEN 07/2026: Kit, Free bis 10.000; Double-Opt-in aktivieren, US-Transfer in die Datenschutzerklaerung; Begruendung in youtube/newsletter/research-2026-07.md Frage B) -->
+        <!-- Kit angeschlossen 13.07.2026 (Form 9675389 "Website", Double-Opt-in an). Offen: US-Transfer in die Datenschutzerklaerung. -->
         <form id="sf" class="frow">
           <input id="em" type="email" required placeholder="you@email.com" aria-label="Email" autocomplete="email">
           <button class="btn btn-gold" type="submit">Get the weekly story</button>
@@ -323,10 +323,33 @@ html.still .rv{opacity:1!important;transform:none!important}
     t.className = 'lang on';
   });
 
-  // Formular (Platzhalter bis Anbieter feststeht)
+  // Formular -> Kit (13.07.2026, Form 9675389 "Website"): E-Mail + Sprache, Double-Opt-in macht Kit
   document.getElementById('sf').addEventListener('submit', function(e){
     e.preventDefault();
-    document.getElementById('fmsg').className = 'fmsg on';
+    var em = document.getElementById('em').value;
+    var lt = document.querySelector('#langs .lang.on');
+    var lang = lt ? lt.getAttribute('data-l') : 'en';
+    var fm = document.getElementById('fmsg');
+    var bt = e.target.querySelector('button');
+    if (bt){ bt.disabled = true; bt.textContent = 'One moment…'; }
+    var fd = new FormData();
+    fd.append('email_address', em);
+    fd.append('fields[language]', lang);
+    fetch('https://app.kit.com/forms/9675389/subscriptions', {method:'POST', headers:{'Accept':'application/json'}, body:fd})
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        var ok = j && j.status === 'success';
+        fm.innerHTML = ok
+          ? 'One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.'
+          : 'Hmm, that didn’t work. Please check the address and try again.';
+        fm.className = 'fmsg on';
+        if (bt){ if (ok){ bt.textContent = 'Check your inbox ✓'; } else { bt.disabled = false; bt.textContent = 'Get the weekly story'; } }
+      })
+      .catch(function(){
+        fm.textContent = 'Something went wrong. Please try again in a moment.';
+        fm.className = 'fmsg on';
+        if (bt){ bt.disabled = false; bt.textContent = 'Get the weekly story'; }
+      });
   });
 
   // Reveal

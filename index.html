@@ -461,7 +461,20 @@ if(bl&&!STILL){
  };
  addEventListener("scroll",upd,{passive:true});upd();
 }
-var f=document.getElementById("nlform");if(f){var nlStep=1;f.addEventListener("submit",function(e){e.preventDefault();if(nlStep===1){nlStep=2;f.innerHTML='<div class="nl2"><div class="nl2t">Almost there. What should we call you?</div><input type="text" id="nlname" placeholder="Your first name (optional)" aria-label="Name"><div class="nl2t" style="margin-top:12px">Which language for your weekly story?</div><div class="nl2langs"><button type="button" class="nl2l on" data-l="en"><span class="flg us"></span> English</button><button type="button" class="nl2l" data-l="de"><span class="flg de"></span> Deutsch</button><button type="button" class="nl2l" data-l="es"><span class="flg es"></span> Espa&ntilde;ol</button></div><button class="btn-gold" type="submit" style="margin-top:14px">Send me the weekly story</button></div>';f.querySelectorAll(".nl2l").forEach(function(b){b.addEventListener("click",function(){f.querySelectorAll(".nl2l").forEach(function(x){x.classList.remove("on")});b.classList.add("on");});});var ni=f.querySelector("#nlname");if(ni)ni.focus();}else{var m=document.getElementById("nlmsg");if(m)m.classList.add("show");}});}
+var f=document.getElementById("nlform");if(f){var nlStep=1,nlEmail="";f.addEventListener("submit",function(e){e.preventDefault();if(nlStep===1){var ei=f.querySelector('input[type=email]');nlEmail=ei?ei.value:"";nlStep=2;f.innerHTML='<div class="nl2"><div class="nl2t">Almost there. What should we call you?</div><input type="text" id="nlname" placeholder="Your first name (optional)" aria-label="Name"><div class="nl2t" style="margin-top:12px">Which language for your weekly story?</div><div class="nl2langs"><button type="button" class="nl2l on" data-l="en"><span class="flg us"></span> English</button><button type="button" class="nl2l" data-l="de"><span class="flg de"></span> Deutsch</button><button type="button" class="nl2l" data-l="es"><span class="flg es"></span> Espa&ntilde;ol</button></div><button class="btn-gold" type="submit" style="margin-top:14px">Send me the weekly story</button></div>';f.querySelectorAll(".nl2l").forEach(function(b){b.addEventListener("click",function(){f.querySelectorAll(".nl2l").forEach(function(x){x.classList.remove("on")});b.classList.add("on");});});var ni=f.querySelector("#nlname");if(ni)ni.focus();}else{
+/* Schritt 2 -> Kit (13.07.2026, Form 9675389): E-Mail aus Schritt 1 + Name + Sprache; Double-Opt-in macht Kit */
+var m=document.getElementById("nlmsg");
+var name=(f.querySelector("#nlname")||{value:""}).value||"";
+var lb=f.querySelector(".nl2l.on");var lang=lb?lb.getAttribute("data-l"):"en";
+var btn=f.querySelector(".btn-gold");if(btn){btn.disabled=true;btn.textContent="One moment…";}
+var fd=new FormData();fd.append("email_address",nlEmail);fd.append("fields[first_name]",name);fd.append("fields[language]",lang);
+fetch("https://app.kit.com/forms/9675389/subscriptions",{method:"POST",headers:{"Accept":"application/json"},body:fd})
+ .then(function(r){return r.json()})
+ .then(function(j){var ok=j&&j.status==="success";
+  if(m){m.innerHTML=ok?"One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.":"Hmm, that didn’t work. Please check the email address and try again.";m.classList.add("show");}
+  if(btn){if(ok){btn.textContent="Check your inbox ✓";}else{btn.disabled=false;btn.textContent="Send me the weekly story";}}})
+ .catch(function(){if(m){m.textContent="Something went wrong. Please try again in a moment.";m.classList.add("show");}if(btn){btn.disabled=false;btn.textContent="Send me the weekly story";}});
+}});}
 /* Lumora-Leiste erst zeigen, wenn gescrollt wird (nicht ueber der Hero) */
 var cb=document.getElementById("ctabar");
 if(cb){
