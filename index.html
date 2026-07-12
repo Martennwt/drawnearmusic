@@ -466,16 +466,22 @@ var f=document.getElementById("nlform");if(f){var nlStep=1,nlEmail="";f.addEvent
 var m=document.getElementById("nlmsg");
 var name=(f.querySelector("#nlname")||{value:""}).value||"";
 var lb=f.querySelector(".nl2l.on");var lang=lb?lb.getAttribute("data-l"):"en";
-var btn=f.querySelector(".btn-gold");if(btn){btn.disabled=true;btn.textContent="One moment…";}
-/* Kit-Formulare je Sprache (13.07.): eigene Bestaetigungs-Mail pro Sprache */
+/* Kit-Formulare + Meldungen je Sprache (13.07.): eigene Bestaetigungs-Mail und eigene Texte pro Sprache */
 var KITF={en:"9675389",de:"9675516",es:"9675527"};
+var NLT={
+ en:{ok:"One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.",bad:"Hmm, that didn’t work. Please check the email address and try again.",err:"Something went wrong. Please try again in a moment.",done:"Check your inbox ✓",send:"Send me the weekly story",wait:"One moment…"},
+ de:{ok:"Fast geschafft: Wir haben dir gerade eine E-Mail geschickt. <b>Klick auf den Link darin</b>, und die erste Geschichte macht sich auf den Weg.",bad:"Hmm, das hat nicht geklappt. Prüf bitte die E-Mail-Adresse und versuch es noch einmal.",err:"Etwas ist schiefgelaufen. Versuch es gleich noch einmal.",done:"Schau in dein Postfach ✓",send:"Schick mir die Wochen-Geschichte",wait:"Einen Moment…"},
+ es:{ok:"Un paso más: te acabamos de enviar un correo. <b>Haz clic en el enlace</b> para confirmar, y la primera historia va en camino.",bad:"Vaya, algo falló. Revisa el correo e inténtalo de nuevo.",err:"Algo salió mal. Inténtalo de nuevo en un momento.",done:"Revisa tu correo ✓",send:"Envíame la historia semanal",wait:"Un momento…"}
+};
+var T=NLT[lang]||NLT.en;
+var btn=f.querySelector(".btn-gold");if(btn){btn.disabled=true;btn.textContent=T.wait;}
 var fd=new FormData();fd.append("email_address",nlEmail);fd.append("fields[first_name]",name);fd.append("fields[language]",lang);
 fetch("https://app.kit.com/forms/"+(KITF[lang]||KITF.en)+"/subscriptions",{method:"POST",headers:{"Accept":"application/json"},body:fd})
  .then(function(r){return r.json()})
  .then(function(j){var ok=j&&j.status==="success";
-  if(m){m.innerHTML=ok?"One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.":"Hmm, that didn’t work. Please check the email address and try again.";m.classList.add("show");}
-  if(btn){if(ok){btn.textContent="Check your inbox ✓";}else{btn.disabled=false;btn.textContent="Send me the weekly story";}}})
- .catch(function(){if(m){m.textContent="Something went wrong. Please try again in a moment.";m.classList.add("show");}if(btn){btn.disabled=false;btn.textContent="Send me the weekly story";}});
+  if(m){m.innerHTML=ok?T.ok:T.bad;m.classList.add("show");}
+  if(btn){if(ok){btn.textContent=T.done;}else{btn.disabled=false;btn.textContent=T.send;}}})
+ .catch(function(){if(m){m.textContent=T.err;m.classList.add("show");}if(btn){btn.disabled=false;btn.textContent=T.send;}});
 }});}
 /* Lumora-Leiste erst zeigen, wenn gescrollt wird (nicht ueber der Hero) */
 var cb=document.getElementById("ctabar");

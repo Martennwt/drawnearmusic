@@ -331,9 +331,15 @@ html.still .rv{opacity:1!important;transform:none!important}
     var lang = lt ? lt.getAttribute('data-l') : 'en';
     var fm = document.getElementById('fmsg');
     var bt = e.target.querySelector('button');
-    if (bt){ bt.disabled = true; bt.textContent = 'One moment…'; }
-    // Kit-Formulare je Sprache (13.07.): eigene Bestaetigungs-Mail pro Sprache
+    // Kit-Formulare + Meldungen je Sprache (13.07.): eigene Bestaetigungs-Mail und eigene Texte pro Sprache
     var KITF = {en:'9675389', de:'9675516', es:'9675527'};
+    var NLT = {
+      en:{ok:'One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.', bad:'Hmm, that didn’t work. Please check the address and try again.', err:'Something went wrong. Please try again in a moment.', done:'Check your inbox ✓', send:'Get the weekly story', wait:'One moment…'},
+      de:{ok:'Fast geschafft: Wir haben dir gerade eine E-Mail geschickt. <b>Klick auf den Link darin</b>, und die erste Geschichte macht sich auf den Weg.', bad:'Hmm, das hat nicht geklappt. Prüf bitte die E-Mail-Adresse und versuch es noch einmal.', err:'Etwas ist schiefgelaufen. Versuch es gleich noch einmal.', done:'Schau in dein Postfach ✓', send:'Schick mir die Wochen-Geschichte', wait:'Einen Moment…'},
+      es:{ok:'Un paso más: te acabamos de enviar un correo. <b>Haz clic en el enlace</b> para confirmar, y la primera historia va en camino.', bad:'Vaya, algo falló. Revisa el correo e inténtalo de nuevo.', err:'Algo salió mal. Inténtalo de nuevo en un momento.', done:'Revisa tu correo ✓', send:'Envíame la historia semanal', wait:'Un momento…'}
+    };
+    var T = NLT[lang] || NLT.en;
+    if (bt){ bt.disabled = true; bt.textContent = T.wait; }
     var fd = new FormData();
     fd.append('email_address', em);
     fd.append('fields[language]', lang);
@@ -341,16 +347,14 @@ html.still .rv{opacity:1!important;transform:none!important}
       .then(function(r){ return r.json(); })
       .then(function(j){
         var ok = j && j.status === 'success';
-        fm.innerHTML = ok
-          ? 'One more step: we just sent you an email. <b>Click the link inside to confirm</b>, and the first story is on its way.'
-          : 'Hmm, that didn’t work. Please check the address and try again.';
+        fm.innerHTML = ok ? T.ok : T.bad;
         fm.className = 'fmsg on';
-        if (bt){ if (ok){ bt.textContent = 'Check your inbox ✓'; } else { bt.disabled = false; bt.textContent = 'Get the weekly story'; } }
+        if (bt){ if (ok){ bt.textContent = T.done; } else { bt.disabled = false; bt.textContent = T.send; } }
       })
       .catch(function(){
-        fm.textContent = 'Something went wrong. Please try again in a moment.';
+        fm.textContent = T.err;
         fm.className = 'fmsg on';
-        if (bt){ bt.disabled = false; bt.textContent = 'Get the weekly story'; }
+        if (bt){ bt.disabled = false; bt.textContent = T.send; }
       });
   });
 
