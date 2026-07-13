@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>You're in &middot; Draw Near</title>
+<link rel="icon" href="assets/logo-gold-transparent.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:#221c12;min-height:100vh;background:radial-gradient(120% 90% at 50% -8%,#fbf6ec 0%,#f4ebd8 48%,#eee3cf 100%) fixed;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+a{color:inherit;text-decoration:none}
+.card{max-width:560px;width:100%;text-align:center;background:#fffdf8;border:1px solid #ece1cb;border-radius:18px;padding:48px 40px 44px;box-shadow:0 18px 50px rgba(120,90,40,.12);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#e9b85c,#f6d27a,#e9b85c)}
+.logo{width:56px;height:56px;object-fit:contain;margin:0 auto 12px;display:block;filter:drop-shadow(0 2px 6px rgba(120,90,40,.28))}
+.brand{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;letter-spacing:.02em}
+.tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#9a6a16;margin-top:2px}
+h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(38px,7vw,52px);line-height:1.05;margin:26px 0 14px}
+h1 i{color:#9a6a16}
+.lead{font-size:17px;line-height:1.65;color:#5e5647;max-width:44ch;margin:0 auto}
+.hint{margin:22px auto 0;max-width:46ch;background:#faf4e8;border-left:4px solid #e9b85c;border-radius:0 10px 10px 0;padding:12px 16px;font-size:14.5px;line-height:1.6;color:#5e5647;text-align:left}
+.btn-gold{display:inline-flex;align-items:center;gap:9px;background:#e9b85c;color:#1a1208;font-weight:800;font-size:16px;padding:14px 28px;border-radius:999px;margin-top:28px;box-shadow:0 0 0 1px rgba(255,227,154,.8),0 4px 14px rgba(233,184,92,.4);transition:transform .15s,box-shadow .2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,227,154,.9),0 8px 22px rgba(233,184,92,.5)}
+.sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9a6a16;margin-top:26px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="assets/logo-gold-transparent.png" alt="Draw Near">
+    <div class="brand">Draw Near</div>
+    <div class="tag">Music that brings you closer to God</div>
+    <h1 id="t-head">You're <i>in</i>.</h1>
+    <p class="lead" id="t-lead">That was the last click. Your first story is on its way to your inbox.</p>
+    <div class="hint" id="t-hint"><b>One small tip:</b> email services sometimes sort us into the Promotions tab at first. If you find us there, drag the email into your inbox once, and you won't miss a story.</div>
+    <a class="btn-gold" id="t-cta" href="index.html">&#9654;&nbsp; Listen to the music</a>
+    <div class="sign" id="t-sign">Until the first story,<br>Draw Near</div>
+  </div>
+<script>
+var T={
+ en:{title:"You're in · Draw Near",head:"You're <i>in</i>.",lead:"That was the last click. Your first story is on its way to your inbox.",hint:"<b>One small tip:</b> email services sometimes sort us into the Promotions tab at first. If you find us there, drag the email into your inbox once, and you won't miss a story.",cta:"▶  Listen to the music",sign:"Until the first story,<br>Draw Near"},
+ de:{title:"Bestätigt · Draw Near",head:"<i>Bestätigt.</i>",lead:"Das war der letzte Klick. Deine erste Geschichte macht sich auf den Weg in dein Postfach.",hint:"<b>Ein kleiner Tipp:</b> E-Mail-Dienste sortieren uns am Anfang manchmal in den Werbung-Tab. Wenn du uns dort findest, zieh die Mail einmal in deinen Posteingang, dann verpasst du keine Geschichte.",cta:"▶  Jetzt Musik hören",sign:"Bis zur ersten Geschichte,<br>Draw Near"},
+ es:{title:"Confirmado · Draw Near",head:"<i>Confirmado.</i>",lead:"Ese fue el último clic. Tu primera historia ya va en camino a tu bandeja de entrada.",hint:"<b>Un pequeño consejo:</b> a veces los servicios de correo nos envían a la pestaña de Promociones al principio. Si nos encuentras ahí, arrastra el correo a tu bandeja principal una vez y no te perderás ninguna historia.",cta:"▶  Escucha la música",sign:"Hasta la primera historia,<br>Draw Near"}
+};
+var lang=(new URLSearchParams(location.search).get("lang")||"en").toLowerCase();
+var t=T[lang]||T.en;
+document.documentElement.lang=lang in T?lang:"en";
+document.title=t.title.replace("·","·");
+document.getElementById("t-head").innerHTML=t.head;
+document.getElementById("t-lead").textContent=t.lead;
+document.getElementById("t-hint").innerHTML=t.hint;
+document.getElementById("t-cta").innerHTML=t.cta;
+document.getElementById("t-sign").innerHTML=t.sign;
+</script>
+</body>
+</html>
