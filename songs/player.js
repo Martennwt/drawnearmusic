@@ -29,6 +29,11 @@ function setVol(v){au.volume=+v;au.muted=false;volIcon();}
 function toggleMute(){if(au.muted||au.volume===0){au.muted=false;au.volume=lastVol||1;document.getElementById("vol").value=au.volume;}else{lastVol=au.volume;au.muted=true;}volIcon();}
 function volIcon(){var b=document.getElementById("volBtn");if(au.muted||au.volume===0){b.innerHTML=VOL.mute;}else if(au.volume<0.5){b.innerHTML=VOL.low;}else{b.innerHTML=VOL.on;}}
 function toggleCollapse(){document.body.classList.toggle("pl-collapsed");}
+var FSIC={enter:'<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>',exit:'<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h5V4M20 9h-5V4M4 15h5v5M20 15h-5v5"/></svg>'};
+function fsEl(){return document.fullscreenElement||document.webkitFullscreenElement||null;}
+function toggleFs(){var d=document.documentElement;try{if(fsEl()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}else{(d.requestFullscreen||d.webkitRequestFullscreen).call(d);}}catch(_){}}
+(function(){if(!(document.fullscreenEnabled||document.webkitFullscreenEnabled))return;var row=document.querySelector(".pl-right");if(!row)return;var b=document.createElement("button");b.id="fsBtn";b.className="ico";b.setAttribute("aria-label","Vollbild");b.title="Vollbild (f)";b.innerHTML=FSIC.enter;b.onclick=toggleFs;row.appendChild(b);function ic(){b.innerHTML=fsEl()?FSIC.exit:FSIC.enter;}document.addEventListener("fullscreenchange",ic);document.addEventListener("webkitfullscreenchange",ic);})();
+document.addEventListener("keydown",function(e){if(e.key!=="f"&&e.key!=="F")return;var t=e.target;if(t&&(t.tagName==="INPUT"||t.tagName==="TEXTAREA"||t.isContentEditable))return;e.preventDefault();toggleFs();});
 function openPl(){document.getElementById("plDrawer").hidden=false;document.getElementById("plBackdrop").hidden=false;}
 function closePl(){document.getElementById("plDrawer").hidden=true;document.getElementById("plBackdrop").hidden=true;}
 function togglePl(){if(document.getElementById("plDrawer").hidden)openPl();else closePl();}
