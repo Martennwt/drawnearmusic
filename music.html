@@ -58,6 +58,18 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
 .yt-ic::after{content:"";position:absolute;left:7px;top:3.2px;border-left:6px solid var(--gold);border-top:4px solid transparent;border-bottom:4px solid transparent}
 @media(max-width:900px){.hgrid{grid-template-columns:1fr;gap:40px}}
 
+/* Plattform-Icons (Marten 17.07.): 1:1 der Hero-Baustein der Startseite, hier nur die
+   Dienste, die noch kommen (YouTube steht schon als Gold-Button darueber). */
+.platrow{display:flex;gap:16px;align-items:center;margin-top:22px}
+.soonlab{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#b39b6f;margin-right:2px}
+.plat{position:relative;width:34px;height:34px;display:flex;align-items:center;justify-content:center;transition:transform .15s,opacity .15s;opacity:.62}
+.plat svg{width:26px;height:26px}
+.plat.p-sp svg{fill:#1DB954}.plat.p-ap svg{fill:#FA243C}.plat.p-ym svg{fill:#FF0000}
+.plat:hover{transform:translateY(-2px) scale(1.12);opacity:1}
+.plat::after{content:attr(data-l);position:absolute;top:calc(100% + 7px);left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:#7a5a1c;background:#fffdf8;border:1px solid #ece1cb;padding:3px 9px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s;z-index:5}
+.plat:hover::after{opacity:1}
+@media(max-width:900px){.platrow{margin-top:18px}}
+
 .coverstack{position:relative;width:100%;aspect-ratio:1/1;max-width:420px}
 .coverstack .c{position:absolute;inset:0;border-radius:14px;background-size:cover;background-position:center;box-shadow:0 24px 60px rgba(60,40,10,.28);border:6px solid #fffdf8}
 .coverstack .c2{transform:rotate(-5deg) translate(-16px,10px);opacity:.9}
@@ -88,8 +100,18 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
 .trow{border-bottom:1px solid var(--line);--rowbg:var(--card);background:var(--rowbg)}
 .trow:nth-child(odd){--rowbg:#fcf7ea}
 .trow:last-child{border-bottom:0}
-.thead{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:18px 26px;cursor:pointer;transition:background .2s}
-.thead:hover{background:rgba(246,210,122,.09)}
+.thead{position:relative;display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:18px 26px;cursor:pointer}
+/* Hover (Marten 17.07.): KEIN beiger Grund mehr (der war identisch mit der Zebra-Toenung und
+   damit unsichtbar). Stattdessen ein feiner Gold-Rahmen mit unserem Schimmer-Lauf.
+   Ring-Trick: Farbverlauf + Maske schneidet die Mitte aus, es bleibt nur der Rand. */
+.thead::before{content:"";position:absolute;inset:7px 14px;border-radius:13px;padding:1.5px;
+  background:linear-gradient(100deg,rgba(169,116,31,.14) 8%,#c9922e 30%,#f6d27a 45%,#fff7db 50%,#f6d27a 55%,#c9922e 70%,rgba(169,116,31,.14) 92%);
+  background-size:220% auto;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;
+  opacity:0;transition:opacity .28s ease;pointer-events:none}
+.thead:hover::before{opacity:1;animation:rowsheen 3.4s linear infinite}
+@keyframes rowsheen{to{background-position:-220% center}}
 .tnum{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#c9a55e;line-height:1;text-align:center}
 .ttitle{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;line-height:1.15}
 .trefs{font-size:12.5px;color:var(--ink-soft);margin-top:3px;letter-spacing:.02em}
@@ -108,6 +130,19 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
 .pbtn.playing{background:rgba(233,184,92,.2)}
 .storyico svg{display:block}
 .trow.open .storyico{background:linear-gradient(180deg,var(--gold-mid),var(--gold));color:#fffdf4;border-color:transparent}
+/* Lyrics-PDF (Marten 17.07.): Icon fragt erst die Sprache, dann oeffnet das PDF */
+.lyrico svg{display:block}
+.lyrwrap{position:relative;display:inline-flex}
+.lyrico.on{background:linear-gradient(180deg,var(--gold-mid),var(--gold));color:#fffdf4;border-color:transparent}
+.lyrpop{position:absolute;right:0;top:calc(100% + 9px);z-index:14;display:flex;flex-direction:column;gap:3px;min-width:148px;padding:8px;background:#fffdf8;border:1px solid rgba(169,116,31,.28);border-radius:13px;box-shadow:0 16px 38px rgba(60,40,10,.22)}
+/* muss NACH display:flex stehen, sonst gewinnt die Klasse gegen das hidden-Attribut */
+.lyrpop[hidden]{display:none}
+.lyrpop.up{top:auto;bottom:calc(100% + 9px)}
+.lyrpop::before{content:"";position:absolute;right:14px;top:-5px;width:9px;height:9px;background:#fffdf8;border-left:1px solid rgba(169,116,31,.28);border-top:1px solid rgba(169,116,31,.28);transform:rotate(45deg)}
+.lyrpop.up::before{top:auto;bottom:-5px;transform:rotate(225deg)}
+.lyrpop b{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:3px 9px 5px}
+.lyrpop a{font-size:13.5px;font-weight:600;color:var(--ink);padding:8px 10px;border-radius:9px;transition:background .15s,color .15s}
+.lyrpop a:hover{background:rgba(233,184,92,.16);color:var(--gold-deep)}
 .story{max-height:0;overflow:hidden;transition:max-height .45s ease;position:relative}
 .story-in{padding:8px 26px 34px 106px;max-width:760px}
 .slangs{display:flex;gap:6px;margin:0 0 14px}
@@ -221,6 +256,7 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
       <a class="btn btn-yt" href="#" title="YouTube-Video kommt noch"><span class="yt-ic"></span>Watch the album on YouTube</a>
       <a class="btn btn-ghost" href="#tracks">Preview every song below</a>
     </div>
+    <div class="platrow" aria-label="Coming soon on"><span class="soonlab">Coming soon</span><span class="plat p-sp" data-l="Spotify · soon"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></span><span class="plat p-ap" data-l="Apple Music · soon"><svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"/></svg></span><span class="plat p-ym" data-l="YouTube Music · soon"><svg viewBox="0 0 24 24"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/></svg></span></div>
   </div>
 </div></header>
 
@@ -230,10 +266,10 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
   <div class="shead">
     <div class="eyebrow">The booklet</div>
     <h2>Every song carries its story</h2>
-    <p>Tap a song to read where it comes from. Every song plays a 30-second preview right here, the full songs and karaoke lyrics live on YouTube.</p>
+    <p>Tap a song to read where it comes from. Every song plays a 35-second preview right here, the full songs and karaoke lyrics live on YouTube.</p>
   </div>
   <div class="booklet" id="booklet"></div>
-  <p class="pnote"><b>Preview</b> plays the first 30 seconds on this page. The full song, with the lyrics lighting up line by line, is waiting on YouTube.</p>
+  <p class="pnote"><b>Preview</b> plays 35 seconds on this page. The full song, with the lyrics lighting up line by line, is waiting on YouTube.</p>
 </div></section>
 
 <section class="more"><div class="wrap">
@@ -307,13 +343,20 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
           '<div class="tacts">'+
             '<button class="pbtn icobtn" data-prev="'+s.id+'" title="Preview: the first 30 seconds" aria-label="Preview: the first 30 seconds"><span class="tri"></span><span class="pl" hidden></span></button>'+
             '<button class="icobtn storyico" title="The story behind the song" aria-label="The story behind the song"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5.1 8.5 4.5 6 4.5c-1.2 0-2.3.15-3 .4V19c.7-.25 1.8-.4 3-.4 2.5 0 4.5.55 6 1.9 1.5-1.35 3.5-1.9 6-1.9 1.2 0 2.3.15 3 .4V4.9c-.7-.25-1.8-.4-3-.4-2.5 0-4.5.6-6 2z"/><path d="M12 6.5v14"/></svg></button>'+
+            '<span class="lyrwrap">'+
+              '<button class="icobtn lyrico" title="Lyrics as PDF" aria-label="Lyrics as PDF" aria-expanded="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 12.5h6"/><path d="M9 16.5h4"/></svg></button>'+
+              '<span class="lyrpop" hidden><b>Lyrics PDF</b>'+
+                '<a href="songs/'+s.id+'/lyrics-es.pdf" target="_blank" rel="noopener">Español</a>'+
+                '<a href="songs/'+s.id+'/lyrics-de.pdf" target="_blank" rel="noopener">Deutsch</a>'+
+              '</span>'+
+            '</span>'+
             '<a class="ytbtn" href="#" title="YouTube-Video kommt noch" onclick="event.stopPropagation()"><span class="yt-ic sm"></span>Watch on YouTube</a>'+
           '</div>'+
         '</div>'+
         '<div class="story"><span class="peekhint">The story <span class="arr">↓</span></span><div class="story-in" data-story></div></div>';
       host.appendChild(row);
       row.querySelector('.thead').addEventListener('click',function(e){
-        if(e.target.closest('[data-prev]'))return;
+        if(e.target.closest('[data-prev]')||e.target.closest('.lyrwrap'))return;
         toggle(row,s);
       });
       row.querySelector('.story').addEventListener('click',function(){
@@ -321,7 +364,33 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
       });
     });
     bindPreview();
+    bindLyrics();
   }
+
+  /* Lyrics-PDF-Popover: fragt Sprache, oeffnet dann das PDF.
+     Das Booklet schneidet Ueberstehendes ab (overflow:hidden), darum klappt das
+     Popover bei den unteren Zeilen nach oben auf. */
+  function closePops(){
+    document.querySelectorAll('.lyrpop').forEach(function(p){p.hidden=true});
+    document.querySelectorAll('.lyrico.on').forEach(function(b){b.classList.remove('on');b.setAttribute('aria-expanded','false')});
+  }
+  function bindLyrics(){
+    document.querySelectorAll('.lyrico').forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        var pop=b.parentNode.querySelector('.lyrpop');
+        var wasOpen=!pop.hidden;
+        closePops();
+        if(wasOpen)return;
+        pop.hidden=false;
+        b.classList.add('on');b.setAttribute('aria-expanded','true');
+        var bk=host.getBoundingClientRect(),br=b.getBoundingClientRect();
+        pop.classList.toggle('up',br.bottom+9+pop.offsetHeight>bk.bottom);
+      });
+    });
+  }
+  document.addEventListener('click',function(e){if(!e.target.closest('.lyrwrap'))closePops()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePops()});
 
   var LANGS=[['en','English'],['es','Español'],['de','Deutsch']];
   function renderStory(row,s){
@@ -377,9 +446,14 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
     io.observe(first);
   }
 
-  /* 30s-Preview; am Ende leuchtet der YouTube-Button der Zeile auf */
-  var au=null,curBtn=null;
+  /* Preview (Marten 17.07.): 35 Sekunden ab Sekunde 5, sanft ein- und ausgeblendet.
+     Sekunde 5 ueberspringt die stillen Intro-Takte, der Fade vermeidet den harten Schnitt.
+     Am Ende leuchtet der YouTube-Button der Zeile auf. */
+  var P_START=5,P_LEN=35,P_FADE=1.6;
+  var au=null,curBtn=null,tick=null;
+  function fmt(sec){sec=Math.max(0,Math.ceil(sec));return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')}
   function stopAu(nudge){
+    if(tick){clearInterval(tick);tick=null}
     if(au){au.pause();au=null}
     if(curBtn){
       curBtn.classList.remove('playing');curBtn.querySelector('.pl').hidden=true;curBtn.querySelector('.tri').hidden=false;
@@ -394,14 +468,26 @@ h1.albumtitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:c
         if(curBtn===b){stopAu(false);return}
         stopAu(false);
         var s=ALBUM.songs.filter(function(x){return x.id===b.dataset.prev})[0];
-        au=new Audio(s.mp3);au.play();curBtn=b;
-        b.classList.add('playing');b.querySelector('.tri').hidden=true;
-        var pl=b.querySelector('.pl');pl.hidden=false;pl.textContent='0:30';
-        au.addEventListener('timeupdate',function(){
-          if(!au)return;var left=Math.max(0,30-au.currentTime);
-          if(curBtn)curBtn.querySelector('.pl').textContent='0:'+String(Math.ceil(left)).padStart(2,'0');
-          if(au.currentTime>=30)stopAu(true);
+        var start=P_START,end=P_START+P_LEN;
+        au=new Audio(s.mp3);au.volume=0;curBtn=b;
+        au.addEventListener('loadedmetadata',function(){
+          if(!au)return;
+          if(au.duration&&au.duration<end+1){start=0;end=Math.min(P_LEN,au.duration)}
+          try{au.currentTime=start}catch(err){}
         });
+        au.play();
+        b.classList.add('playing');b.querySelector('.tri').hidden=true;
+        var pl=b.querySelector('.pl');pl.hidden=false;pl.textContent=fmt(P_LEN);
+        /* eigener Takt statt timeupdate: der feuert zu grob fuer einen weichen Fade */
+        tick=setInterval(function(){
+          if(!au)return;
+          var t=au.currentTime,into=t-start,left=end-t;
+          var v=Math.min(into,left)/P_FADE;
+          v=Math.max(0,Math.min(1,v));
+          au.volume=v*v;
+          if(curBtn)curBtn.querySelector('.pl').textContent=fmt(Math.min(P_LEN,left));
+          if(t>=end)stopAu(true);
+        },60);
       });
     });
   }

@@ -251,10 +251,10 @@ var COVERS=[
  {img:"songs/the-sower/img/hell-1-sower.webp",glabel:"Indie Folk Pop",title:"The Sower",soon:false,en:"See the birds up in the sky",es:"Mira las aves del cielo",moods:["doubt"],
   idea:"The song is about how people receive the good news about God. Some hear it, and a minute later it is gone. Some feel it for a while, but everyday worries choke it. And in a few people it takes root, grows and changes their whole life. The difference is the heart: the message only grows where someone stays open and lets it.",
   takes:["Keep your heart open when you hear about God","Don't let worries choke the good news","If you let it grow, it changes your life"]},
- {img:"assets/blues-delta-sq.webp",glabel:"Blues",title:"Heavy Days Blues",soon:true,en:"I will give you rest",es:"Yo os har\u00e9 descansar",moods:["heavy","loss"],
+ {img:"assets/blues-delta-sq.webp",glabel:"Delta Blues",title:"Lay It Down",soon:true,song:"lay-it-down",preview:19,plen:30,en:"I will give you rest",es:"Yo os har\u00e9 descansar",moods:["heavy","loss"],
   idea:"Some days simply weigh too much: work, bills, the phone that will not stop, the things you cannot change tonight. Most of us keep carrying anyway, because it feels like nobody else will. This song leans on one of the oldest invitations there is: come to me, all who are weary, and I will give you rest. Not rest you earn after everything is done: rest that is handed to you in the middle of it.",
   takes:["Put the heavy day down for a moment","You don't have to carry everything alone","Rest is allowed before the work is finished"]},
- {img:"assets/cover-lofi-armchair.webp",glabel:"Lofi for anxiety & peace",title:"Peace I Leave",soon:true,en:"Peace I leave with you",es:"La paz os dejo",moods:["peace","anxiety"],
+ {img:"assets/cover-lofi-armchair.webp",glabel:"Lofi for anxiety & peace",title:"Come to Me and Rest",soon:true,song:"come-to-me-and-rest",preview:10,plen:30,en:"Peace I leave with you",es:"La paz os dejo",moods:["peace","anxiety"],
   idea:"There is the peace of a calm evening, and then there is the peace that stays when nothing around you is calm: the diagnosis, the argument, the month that will not add up. Jesus called that second kind 'my peace, not as the world gives'. The song is about exactly that difference: a calm that does not depend on the day going well, because it comes from somewhere the day cannot touch.",
   takes:["Real peace doesn't depend on a good day","Breathe first, react second","Quiet inside is possible even when it's loud outside"]},
  {img:"songs/give-it-all-away/img/v2-7-arms-up.webp",glabel:"Indie Folk Pop",title:"Give It All Away",soon:false,song:"give-it-all-away",preview:58,en:"Give it all away",es:"Entr\u00e9galo todo",moods:["anxiety","fear","peace"],
@@ -281,7 +281,7 @@ var COVERS=[
  {img:"assets/cover-rnb-soul.webp",glabel:"R&B",title:"Steady Love",soon:true,en:"His love endures forever",es:"Su amor perdura para siempre",moods:["love","peace"],
   idea:"Everyone has been loved on a good day. Fewer of us trust a love that stays through the bad ones. This one leans into a line the old songs repeat like a heartbeat: his love endures forever. Not love that shows up when you perform, but a steady, unhurried love that is still there at your worst, which is exactly when you stop believing you deserve it.",
   takes:["You are loved on your bad days too","Steady love beats loud love","You do not have to earn what is already given"]},
- {img:"assets/cover-hiphop-city.webp",glabel:"Hip Hop",title:"Fear No Evil",soon:true,en:"I will fear no evil",es:"No temer\u00e9 mal alguno",moods:["fear","doubt"],
+ {img:"assets/cover-hiphop-city.webp",glabel:"Hip Hop",title:"Proverbs 2 & 3",soon:true,song:"proverbs-2-3",preview:20,plen:25,en:"I will fear no evil",es:"No temer\u00e9 mal alguno",moods:["fear","doubt"],
   idea:"Walking through the hard part of the city, or the hard part of your life, the fear is real. The oldest verse people quote at funerals and in prison cells says something bold about it: even in the darkest valley, I will fear no evil, because you are with me. Not because the valley is not dark. Because you are not walking it alone.",
   takes:["The valley is real, but you are not alone in it","Courage is fear with company","Keep walking, you are being walked with"]}
 ];
@@ -309,7 +309,8 @@ function playPreview(c,j,el){
  var a=new Audio("songs/"+c.song+"/"+c.song+".mp3");a._fanId=j;a.volume=0;a.currentTime=c.preview||60;PRE=a;
  a.play().then(function(){el.classList.add("playing");
   PREfade=setInterval(function(){if(PRE!==a){return;}a.volume=Math.min(1,a.volume+0.1);if(a.volume>=1&&PREfade){clearInterval(PREfade);PREfade=null;}},60);
-  PREtimer=setTimeout(stopPreview,22000);
+  /* plen = Schnipsel-Laenge in Sekunden (Marten 17.07., je Song eigen); ohne Angabe wie bisher 22s */
+  PREtimer=setTimeout(stopPreview,(c.plen||22)*1000);
  }).catch(function(){});
 }
 var els=COVERS.map(function(c,j){
